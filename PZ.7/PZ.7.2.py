@@ -5,13 +5,8 @@
 превратится в «ргамамроП»).
 """
 def encrypt_sentence(sentence):
-    even_chars = sentence[1::2]
-    odd_chars_reversed = sentence[0::2][::-1]
-    return even_chars + odd_chars_reversed
-input_string = "Программа"
-encrypted = encrypt_sentence(input_string)
-print(f"Исходная строка: '{input_string}'")
-print(f"Зашифрованная строка: '{encrypted}'")
+    return sentence[1::2] + sentence[0::2][::-1]
 
-test_string = "Шифрование"
-test_result = encrypt_sentence(test_string)
+user_input = input("Введите строку для шифрования: ")
+encrypted = encrypt_sentence(user_input)
+print(f"Зашифрованная строка: '{encrypted}'")
