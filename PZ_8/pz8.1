@@ -1,0 +1,17 @@
+"""
+Найдите ключ с минимальным значением в sample_dict = {'Physics': 82, 'Math': 65,
+'history': 75}
+"""
+
+sample_dict = {'Physics': 82, 'Math': 65, 'history': 75}
+
+min_value = float('inf')
+min_key = None
+
+for key, value in sample_dict.items():
+    if value < min_value:
+        min_value = value
+        min_key = key
+
+print(f"Ключ с минимальным значением: {min_key}")
+print(f"Минимальное значение: {min_value}")
