@@ -1,0 +1,69 @@
+"""
+Средствами языка Python сформировать текстовый файл (.txt), содержащий
+последовательность из целых положительных и отрицательных чисел. Сформировать
+новый текстовый файл (.txt) следующего вида, предварительно выполнив требуемую
+обработку элементов:
+Исходные данные:
+Количество элементов:
+Максимальный элемент:
+Произведение элементов меньших 0 в первой половине:
+"""
+import random
+
+f = open("numbers.txt", "w", encoding="utf-8")
+nums = []
+
+for i in range(12):
+    n = random.randint(-10, 10)
+    nums.append(n)
+    f.write(str(n) + " ")
+
+f.close()
+print("Исходные числа:", nums)
+
+kolichestvo = len(nums)
+print("Количество элементов:", kolichestvo)
+
+min_elem = nums[0]
+for i in range(len(nums)):
+    if nums[i] < min_elem:
+        min_elem = nums[i]
+
+print("Минимальный элемент:", min_elem)
+
+max_elem = nums[0]
+for i in range(len(nums)):
+    if nums[i] > max_elem:
+        max_elem = nums[i]
+
+print("Первый максимальный элемент:", max_elem)
+
+half = kolichestvo // 2
+prois = 1
+has_negative = False
+
+for i in range(half):
+    if nums[i] < 0:
+        prois *= nums[i]
+        has_negative = True
+
+if has_negative:
+    result_text = f"Произведение элементов < 0 в первой половине: {prois}"
+else:
+    result_text = "Произведение элементов < 0 в первой половине: нет отрицательных чисел"
+
+print(result_text)
+
+res = open("result.txt", "w", encoding="utf-8")
+
+res.write("Исходные данные: ")
+for x in nums:
+    res.write(str(x) + " ")
+res.write(" ")
+
+res.write("Количество элементов: " + str(kolichestvo) + " ")
+res.write("Минимальный элемент: " + str(min_elem) + " ")
+res.write("Первый максимальный элемент: " + str(max_elem) + " ")
+res.write(result_text)
+
+res.close()
