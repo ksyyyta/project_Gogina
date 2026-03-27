@@ -1,0 +1,17 @@
+"""
+В последовательности на n целых чисел умножить элементы до n-1 на элемент
+n
+"""
+import random
+
+def proizvedenie(a):
+    if len(a) < 2:
+        return a
+
+    last = a[-1]
+    return list(map(lambda x: x * last, a[:-1])) + [last]
+
+
+a = [random.randint(1, 10) for _ in range(random.randint(1, 10))]
+result = proizvedenie(a)
+print(f"изначальный список: {a}  результат: {result}")
