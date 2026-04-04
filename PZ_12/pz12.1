@@ -1,0 +1,29 @@
+
+"""
+В квадратной матрице все элементы, не лежащие на главной диагонали увеличить в
+2 раза.
+"""
+from  random import randint
+def create_random_matrix(size, min_val=1, max_val=9):
+    return [[randint(min_val, max_val) for _ in range(size)] for _ in range(size
+                                                                            )]
+def transform_matrix(matrix):
+    return list(map(
+        lambda row_idx_row: list(map(
+            lambda col_idx_val:
+col_idx_val[1] * 2 if col_idx_val[0] !=
+row_idx_row[0] else col_idx_val[1],
+            enumerate(row_idx_row[1])
+        )),
+        enumerate(matrix)
+    ))
+def print_matrix(matrix, title="Матрица"):
+    print (f"\n{title}:")
+    for row in matrix:
+        print(" ".join(f"{x:3d}" for x in
+row))
+SIZE = 4
+original = create_random_matrix(SIZE)
+result = transform_matrix(original)
+print_matrix(original, "Исходная матрица")
+print_matrix(result, "Преобразованная сатрица")
