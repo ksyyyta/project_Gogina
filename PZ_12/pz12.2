@@ -3,7 +3,7 @@ from random import randint
 
 matrix = [[randint(-10, 10) for _ in range(4)] for _ in range(4)]
 
-positive = any(map(lambda row: any(map(lambda x: x > 0, row)), matrix))
+positive = any(map(lambda y: any(map(lambda x: x > 0, y)), matrix))
 print("матрица:")
-[print(" ".join(f"{x:3d}" for x in row)) for row in matrix]
+[print(" ".join(f"{x:3d}" for x in y)) for y in matrix]
 print(f"\n Есть положительные элементы? {positive}")
