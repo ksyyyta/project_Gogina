@@ -1,0 +1,17 @@
+"""
+Дан словарь с четным количеством элементов. Найти суммы значений элементов
+первой и второй половин с использованием функции. Результаты вывести на экран.
+
+"""
+def sum_halves(dictionary):
+    values = list(dictionary.values())
+    half = len(values) // 2
+    return sum(values[:half]), sum(values[half:])
+my_dict = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50, 'f': 60}
+
+if len(my_dict) % 2 == 0:
+    first_sum, second_sum = sum_halves(my_dict)
+    print(f"Первая половина: {first_sum}")
+    print(f"Вторая половина: {second_sum}")
+else:
+    print("Словарь должен содержать четное количество элементов")

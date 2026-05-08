@@ -1,0 +1,108 @@
+"""
+Даны три целых числа. Определить у какого числа больше сумма цифр. Вывод
+результата предусмотреть в основной программе. Расчет суммы цифр оформить в
+функции
+"""
+def Sum_chisel(n):
+    n = abs(n)
+    total = 0
+    while n > 0:
+        total += n % 10
+        n = n // 10
+    return total
+
+try:
+    a = int(input('Введите первое число:'))
+    b = int(input('Введите второе число: '))
+    c = int(input('Введите третье число:'))
+
+    sum_a = Sum_chisel(a)
+    sum_b = Sum_chisel(b)
+    sum_c = Sum_chisel(c)
+
+    max_sum = max(sum_a, sum_b, sum_c)
+
+    if sum_a == max_sum and sum_b == max_sum and sum_c == max_sum:
+        print('Сумма цифр у всех чисел одинаковая')
+    elif sum_a == max_sum and sum_b == max_sum:
+        print(f'Сумма цифр чисел {a} и {b} равна и больше суммы цифр числа {c}')
+    elif sum_a == max_sum and sum_c == max_sum:
+        print(f'Сумма цифр чисел {a} и {c} равна и больше суммы цифр числа {b}')
+    elif sum_b == max_sum and sum_c == max_sum:
+        print(f'Сумма цифр чисел {b} и {c} равна и больше суммы цифр числа {a}')
+    elif sum_a == max_sum:
+        print(f'У числа {a} наибольшая сумма цифр: {sum_a}')
+    elif sum_b == max_sum:
+        print(f'У числа {b} наибольшая сумма цифр: {sum_b}')
+    else:
+        print(f'У числа {c} наибольшая сумма цифр: {sum_c}')
+
+except ValueError:
+    print('Введите целое число')
+
+"""
+Рассчитать и вывести периметр и площадь прямоугольника. Расчеты оформить в
+функции
+"""
+
+
+def calculate_rectangle(dlina, shirina):
+    perimeter = 2 * (dlina + shirina)
+    ploshad = dlina * shirina
+    return perimeter, ploshad
+
+
+def main():
+    try:
+        print("Расчет периметра и площади прямоугольника")
+
+        dlina = float(input("Введите длину прямоугольника: "))
+        shirina = float(input("Введите ширину прямоугольника: "))
+
+        if dlina <= 0 or shirina <= 0:
+            print("Ошибка: размеры должны быть положительными!")
+            return
+
+        perimeter, ploshad = calculate_rectangle(dlina, shirina)
+        print(f"Периметр прямоугольника: {perimeter}")
+        print(f"Площадь прямоугольника: {ploshad}")
+
+    except ValueError:
+        print("Введите число")
+
+    main()
+
+"""
+Написать программу, подсчитывающую количество цифр числа, используя для
+этого функцию.
+"""
+
+
+def count_digits(number):
+
+    if number == 0:
+        return 1
+
+    num = abs(number)
+    count = 0
+
+    while num > 0:
+        count += 1
+        num //= 10
+
+    return count
+
+
+def main():
+    try:
+        number = int(input("Введите целое число: "))
+
+        digit_count = count_digits(number)
+
+        print(f"Число: {number}")
+        print(f"Количество цифр: {digit_count}")
+
+    except ValueError:
+        print("Ошибка: пожалуйста, вводите только целые числа!")
+
+    main()

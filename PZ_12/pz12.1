@@ -1,0 +1,17 @@
+"""
+В квадратной матрице все элементы, не лежащие на главной диагонали увеличить в
+2 раза.
+"""
+from random import randint
+
+n = 5
+matrix = [[randint(1, 9) for _ in range(n)] for _ in range(n)]
+result = [[matrix[i][j] * 2 if i != j else matrix[i][j] for j in range(n)] for i in range(n)]
+
+print("Исходная матрица:")
+for y in matrix:
+    print(*y)
+
+print("\nРезультат:")
+for y in result:
+    print(*y)

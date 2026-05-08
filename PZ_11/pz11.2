@@ -1,0 +1,7 @@
+def letters_text(text):
+
+    yield from filter(str.isalpha, text)
+
+text = "Гогина Ксения ИС-23. Практическое задание 11"
+for letter in letters_text(text):
+    print(letter, end=' ')
